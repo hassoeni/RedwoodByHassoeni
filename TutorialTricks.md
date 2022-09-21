@@ -2,4 +2,7 @@ important to start is to run
 1. yarn redwood dev
 2. to generate page is by hitting yarn rw generate page home --> this will create a PascalCase folder with storybook inside and automaticlly add it to route
 3. yarn rw g(enerate) layout 'insert name' --> this will create a PascalFolder layout under the layouts folder
-4. after deciding on your layout you need to adjust the routs folder. To actually render the layout  --> Do this by invoking a Set component and give it a wrap={'YourNamedLayout'} props 
+4. after deciding on your layout you need to adjust the routs folder. To actually render the layout  --> Do this by invoking a Set component and give it a wrap={'YourNamedLayout'} props
+5. initializing the backend with yarn rw prisma migrate dev after defining a schema
+6. test this by hitting yarn rw prisma studio
+7. let redwood autogenerate a CRUD site for your schema with yarn rw g scaffold 'schemaname'

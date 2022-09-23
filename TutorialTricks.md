@@ -26,3 +26,6 @@ Add the cell to the page
 10. Dynamic routing dus hoe display je een single item url. wanneer je op je blog drukt. Aller eerst moet je een artikel pagina genereren met yarn rw g page artikel.
 10a. vervolgens ga je naar je Success Query en voeg jeen link tag toe met to={routes.artikel({ id: whateverjegemapdenameis.id})}
 10b. vergeet in je artikel pagina niet je de autogegenereerde Link te verwijderen anders houdt je <error> aan
+Using the Param
+Ok, so the ID is in the URL. What do we need next in order to display a specific post? It sounds like we'll be doing some data retrieval from the database, which means we want a cell. Note the singular Article here since we're only displaying one:
+11.

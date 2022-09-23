@@ -10,3 +10,19 @@ important to start is to run
 8. yarn rw g cell Articles genereert een cell automatisch die in je front end wordt geplaatst vergeet de S niet aan de achterkant te plaatsen
 9. vervolgens kan je deze cell in een van je components laden zoals je homepage om data te displayen.
 
+--------------------------------------------------------------------------
+<div>
+<h1>What we did so far</h1>
+Generate the homepage
+Generate the blog layout
+Define the database schema
+Run migrations to update the database and create a table
+Scaffold a CRUD interface to the database table
+Create a cell to load the data and take care of loading/empty/failure/success states
+Add the cell to the page
+</div>
+------------------------------------------------------------------------
+
+10. Dynamic routing dus hoe display je een single item url. wanneer je op je blog drukt. Aller eerst moet je een artikel pagina genereren met yarn rw g page artikel.
+10a. vervolgens ga je naar je Success Query en voeg jeen link tag toe met to={routes.artikel({ id: whateverjegemapdenameis.id})}
+10b. vergeet in je artikel pagina niet je de autogegenereerde Link te verwijderen anders houdt je <error> aan

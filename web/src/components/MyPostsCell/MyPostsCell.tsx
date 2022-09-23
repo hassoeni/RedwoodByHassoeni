@@ -6,6 +6,9 @@ export const QUERY = gql`
   query MyPostsQuery {
     berichtens {
       id
+      title
+      content
+      createdAt
     }
   }
 `
@@ -20,10 +23,20 @@ export const Failure = ({ error }: CellFailureProps) => (
 
 export const Success = ({ berichtens }: CellSuccessProps<MyPostsQuery>) => {
   return (
-    <ul>
-      {berichtens.map((item) => {
-        return <li key={item.id}>{JSON.stringify(item)}</li>
-      })}
-    </ul>
+    <>
+        {berichtens.map((item) => (
+          <article key={item.id}>
+            <header>
+              <h2>{item.title}</h2>
+            </header>
+            <p>
+              {item.content}
+            </p>
+            <div>
+              Posted at: {item.createdAt}
+            </div>
+          </article>
+        ))}
+    </>
   )
 }

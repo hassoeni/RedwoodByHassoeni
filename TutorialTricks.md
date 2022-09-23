@@ -6,3 +6,5 @@ important to start is to run
 5. initializing the backend with yarn rw prisma migrate dev after defining a schema
 6. test this by hitting yarn rw prisma studio
 7. let redwood autogenerate a CRUD site for your schema with yarn rw g scaffold 'schemaname'
+7a. Redwood Cells important giveways guideline for when to use cells is if your component needs some data from the database or other service that may be delayed in responding. Let Redwood worry about juggling what is displayed when and you can focus on the happy path of the final, rendered component populated with data.
+8. yarn rw g cell Articles genereert een cell automatisch die in je front end wordt geplaatst 

@@ -1,12 +1,12 @@
 import type { MyPostsQuery } from 'types/graphql'
 import type { CellSuccessProps, CellFailureProps } from '@redwoodjs/web'
-import ArtikelPage from 'src/pages/ArtikelPage/ArtikelPage'
-import { Link, routes } from '@redwoodjs/router'
+import Artikel from 'src/components/Artikel'
 
+import { Link, routes } from '@redwoodjs/router'
 
 export const QUERY = gql`
   query MyPostsQuery {
-    berichtens {
+    banaan: berichtens {
       id
       title
       content
@@ -23,25 +23,12 @@ export const Failure = ({ error }: CellFailureProps) => (
   <div style={{ color: 'red' }}>Error: {error?.message}</div>
 )
 
-export const Success = ({ berichtens }: CellSuccessProps<MyPostsQuery>) => {
+export const Success = ({ banaan }: CellSuccessProps<MyPostsQuery>) => {
   return (
     <>
-        {berichtens.map((item) => (
-          <article key={item.id}>
-            <header>
-
-              <Link to={routes.artikel({id: item.id})}>
-                <h2>{item.title}</h2>
-                </Link>
-            </header>
-            <p>
-              {item.content}
-            </p>
-            <div>
-              Posted at: {item.createdAt}
-            </div>
-          </article>
-        ))}
+      {banaan.map((item) => (
+        <Artikel key={item.id} item={item}/>
+      ))}
     </>
   )
 }

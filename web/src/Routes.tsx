@@ -9,6 +9,8 @@
 
 import { Router, Route, Set } from '@redwoodjs/router'
 
+import PostsLayout from 'src/layouts/PostsLayout'
+
 import BerichtensLayout from 'src/layouts/BerichtensLayout'
 
 import BlogLayout from './layouts/BlogLayout/BlogLayout'
@@ -16,6 +18,12 @@ import BlogLayout from './layouts/BlogLayout/BlogLayout'
 const Routes = () => {
   return (
     <Router>
+      <Set wrap={PostsLayout}>
+        <Route path="/posts/new" page={PostNewPostPage} name="newPost" />
+        <Route path="/posts/{id:Int}/edit" page={PostEditPostPage} name="editPost" />
+        <Route path="/posts/{id:Int}" page={PostPostPage} name="post" />
+        <Route path="/posts" page={PostPostsPage} name="posts" />
+      </Set>
       <Set wrap={BerichtensLayout}>
         <Route path="/berichtens/new" page={BerichtenNewBerichtenPage} name="newBerichten" />
         <Route path="/berichtens/{id:Int}/edit" page={BerichtenEditBerichtenPage} name="editBerichten" />
@@ -23,7 +31,8 @@ const Routes = () => {
         <Route path="/berichtens" page={BerichtenBerichtensPage} name="berichtens" />
       </Set>
       <Set wrap={BlogLayout}>
-        <Route path="/artikel/{id:Int}" page={ArtikelPage} name="artikel" />
+        <Route path="/article/{id:Int}" page={ArticlePage} name="article" />
+        <Route path="/lul/{id:Int}" page={ArtikelPage} name="lul" />
         <Route path="/about" page={AboutPage} name="about" />
         <Route path="/" page={HomePage} name="home" />
       </Set>

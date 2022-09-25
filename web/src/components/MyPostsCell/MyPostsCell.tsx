@@ -2,7 +2,6 @@ import type { MyPostsQuery } from 'types/graphql'
 import type { CellSuccessProps, CellFailureProps } from '@redwoodjs/web'
 import Artikel from 'src/components/Artikel'
 
-import { Link, routes } from '@redwoodjs/router'
 
 export const QUERY = gql`
   query MyPostsQuery {

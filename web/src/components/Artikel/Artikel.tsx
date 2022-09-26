@@ -10,7 +10,7 @@ const Artikel = ({ item }: Props) => {
   return (
     <article>
       <header>
-        <Link to={routes.lul({ id: item.id })}>{item.title}</Link>
+        <Link to={routes.artikel({ id: item.id })}>{item.title}</Link>
       </header>
       <p>{item.content}</p>
       <div>Posted at: {item.createdAt}</div>

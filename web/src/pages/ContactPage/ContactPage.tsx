@@ -1,24 +1,51 @@
+import { MetaTags, useMutation } from '@redwoodjs/web'
 import {
+  FieldError,
   Form,
+  Label,
   TextField,
+  TextAreaField,
   Submit,
   SubmitHandler,
-  TextAreaField,
-  Label,
-  FieldError,
 } from '@redwoodjs/forms'
-import { MetaTags } from '@redwoodjs/web'
+
+import {
+  CreateContactMutation,
+  CreateContactMutationVariables,
+} from 'types/graphql'
+
+const CREATE_CONTACT = gql`
+  mutation CreateContactMutation($input: CreateContactInput!) {
+    createContact(input: $input) {
+      id
+    }
+  }
+`
+
+interface FormValues {
+  name: string
+  email: string
+  message: string
+}
 
 const ContactPage = () => {
+  const [create] = useMutation<
+    CreateContactMutation,
+    CreateContactMutationVariables
+  >(CREATE_CONTACT)
+
   const onSubmit: SubmitHandler<FormValues> = (data) => {
     console.log(data)
   }
+
   return (
     <>
       <MetaTags title="Contact" description="Contact page" />
 
-      <Form onSubmit={onSubmit} config={{mode: 'onBlur'}}>
-        <label htmlFor="name">Name</label>
+      <Form onSubmit={onSubmit} config={{ mode: 'onBlur' }}>
+        <Label name="name" errorClassName="error">
+          Name
+        </Label>
         <TextField
           name="name"
           validation={{ required: true }}
@@ -42,7 +69,9 @@ const ContactPage = () => {
         />
         <FieldError name="email" className="error" />
 
-        <label htmlFor="message">Message</label>
+        <Label name="message" errorClassName="error">
+          Message
+        </Label>
         <TextAreaField
           name="message"
           validation={{ required: true }}

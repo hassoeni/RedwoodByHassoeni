@@ -29,3 +29,11 @@ Add the cell to the page
 Using the Param
 Ok, so the ID is in the URL. What do we need next in order to display a specific post? It sounds like we'll be doing some data retrieval from the database, which means we want a cell. Note the singular Article here since we're only displaying one:
 11.
+ nog in  te vullen wat er is gedan!!!!!!!!!!!!!!!!
+
+
+ --------
+ 1. Next make a new contact model
+ 2. hit this command yarn rw g sdl Contact. this will create new files under api directory. api/src/graphql/contacts.sdl.ts: defines the GraphQL schema in GraphQL's schema definition language
+api/src/services/contacts/contacts.ts: contains your app's business logic (also creates associated test files).you'll recall that queries and mutations in an SDL file are automatically mapped to resolvers defined in a service, so when you generate an SDL file you'll get a service file as well, since one requires the other.
+

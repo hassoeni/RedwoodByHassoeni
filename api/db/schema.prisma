@@ -18,14 +18,14 @@ model Berichten {
 }
 
 model Contact {
-  id int @id @default(autoincrement())
+  id Int @id @default(autoincrement())
   name String
   email String
   message String
   createdAt DateTime @default(now())
 }
 
-
+// adding ? so String? will mark our data to accept a Null as value
 model Post {
   id        Int      @id @default(autoincrement())
   title     String
